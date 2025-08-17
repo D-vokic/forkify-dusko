@@ -20,7 +20,9 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  transition: opacity 0.2s ease, text-shadow 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    text-shadow 0.2s ease;
 }
 
 .copyright a:hover {
