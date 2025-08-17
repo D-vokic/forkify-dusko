@@ -159,7 +159,7 @@ export const uploadRecipe = async function (newRecipe) {
     // Upisi u state i zadrži key
     state.recipe = createRecipeObject(data);
 
-    // Po defaultu odmah dodaj kao bookmark (kao u kursu)
+    // Po defaultu odmah dodaj kao bookmark
     addBookmark(state.recipe);
   } catch (err) {
     throw err;
