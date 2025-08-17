@@ -1,9 +1,27 @@
 import icons from 'url:../../img/icons.svg';
 import View from './View.js';
 
+/** @typedef {import('../model.js').Recipe} Recipe */
+
+/**
+ * Renders a single search result (recipe preview) as a list item.
+ * Used by ResultsView to compose the results list.
+ *
+ * @this {PreviewView} View instance
+ * @author Duško Vokić
+ */
 class PreviewView extends View {
   _parentElement = '';
 
+  /**
+   * Create markup for one preview item.
+   *
+   * Highlights the active item if its id matches the current hash.
+   *
+   * @returns {string} Markup for a `<li class="preview">…</li>` element
+   * @this {PreviewView} View instance
+   * @author Duško Vokić
+   */
   _generateMarkup() {
     const id = window.location.hash.slice(1);
 

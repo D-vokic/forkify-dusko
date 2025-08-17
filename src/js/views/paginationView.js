@@ -1,6 +1,17 @@
 import icons from 'url:../../img/icons.svg';
 import View from './View.js';
 
+/** @typedef {import('../model.js').Recipe} Recipe */
+/** @typedef {{query:string, results:Recipe[], page:number, resultsPerPage:number}} SearchState */
+
+/**
+ * Build markup for a single pagination button.
+ *
+ * @param {'prev'|'next'} type Which button to render
+ * @param {number} currentPage Current page (1-based)
+ * @returns {string} HTML string for the button
+ * @author Duško Vokić
+ */
 const generateMarkupButton = (type, currentPage) => {
   const isPrev = type === 'prev';
   const target = isPrev ? currentPage - 1 : currentPage + 1;
@@ -26,9 +37,25 @@ const generateMarkupButton = (type, currentPage) => {
   `;
 };
 
+/**
+ * Handles rendering and click events for pagination controls.
+ * Expects `_data` to be a search state object.
+ *
+ * @this {PaginationView} View instance
+ * @author Duško Vokić
+ */
 class PaginationView extends View {
   _parentElement = document.querySelector('.pagination');
 
+  /**
+   * Register click handler for pagination buttons.
+   * Reads the `data-goto` attribute and passes it to the controller.
+   *
+   * @param {(goToPage:number) => void} handler Controller callback
+   * @returns {void}
+   * @this {PaginationView} View instance
+   * @author Duško Vokić
+   */
   addHandlerClick(handler) {
     this._parentElement.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn--inline');
@@ -38,10 +65,20 @@ class PaginationView extends View {
     });
   }
 
+  /**
+   * Create markup for pagination based on current page and total pages.
+   *
+   * @returns {string} HTML for prev/next buttons (or empty string when not needed)
+   * @this {PaginationView} View instance
+   * @author Duško Vokić
+   */
   _generateMarkup() {
-    const currentPage = this._data.page;
+    /** @type {SearchState} */
+    const currentSearch = /** @type {any} */ (this._data);
+
+    const currentPage = currentSearch.page;
     const numPages = Math.ceil(
-      this._data.results.length / this._data.resultsPerPage
+      currentSearch.results.length / currentSearch.resultsPerPage
     );
 
     if (currentPage === 1 && numPages > 1) {

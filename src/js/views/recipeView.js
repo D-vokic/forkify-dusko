@@ -1,16 +1,41 @@
-import View from './View.js';
 import icons from 'url:../../img/icons.svg';
+import View from './View.js';
 import { Fraction } from 'fraction.js';
 
+/** @typedef {import('../model.js').Recipe} Recipe */
+/** @typedef {import('../model.js').Ingredient} Ingredient */
+
+/**
+ * View responsible for rendering a single recipe and its UI interactions.
+ *
+ * @this {RecipeView} View instance
+ * @author Duško Vokić
+ */
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
   _errorMessage = 'We could not find that recipe. Please try another one!';
   _message = '';
 
+  /**
+   * Register handler that renders a recipe when URL hash changes or on initial load.
+   *
+   * @param {() => void} handler Controller callback
+   * @returns {void}
+   * @this {RecipeView} View instance
+   * @author Duško Vokić
+   */
   addHandlerRender(handler) {
     ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
   }
 
+  /**
+   * Register handler for servings +/- buttons.
+   *
+   * @param {(newServings:number) => void} handler Controller callback receiving next servings
+   * @returns {void}
+   * @this {RecipeView} View instance
+   * @author Duško Vokić
+   */
   addHandlerUpdateServings(handler) {
     this._parentElement,
       addEventListener('click', function (e) {
@@ -21,6 +46,14 @@ class RecipeView extends View {
       });
   }
 
+  /**
+   * Register handler for the bookmark toggle button.
+   *
+   * @param {() => void} handler Controller callback
+   * @returns {void}
+   * @this {RecipeView} View instance
+   * @author Duško Vokić
+   */
   addHandlerAddBookmark(handler) {
     this._parentElement.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn--bookmark');
@@ -29,6 +62,13 @@ class RecipeView extends View {
     });
   }
 
+  /**
+   * Create HTML markup for the entire recipe view.
+   *
+   * @returns {string} Raw HTML markup
+   * @this {RecipeView} View instance
+   * @author Duško Vokić
+   */
   _generateMarkup() {
     return `
    <figure class="recipe__fig">
@@ -124,6 +164,14 @@ class RecipeView extends View {
     `;
   }
 
+  /**
+   * Create markup for a single ingredient line.
+   *
+   * @param {Ingredient} ing Ingredient entity
+   * @returns {string} List item markup for the ingredient
+   * @this {RecipeView} View instance
+   * @author Duško Vokić
+   */
   _generateMarkupIngredient(ing) {
     return `
         <li class="recipe__ingredient">

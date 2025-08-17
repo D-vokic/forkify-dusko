@@ -1,3 +1,36 @@
+# Dependencies
 node_modules/
+
+# Build artifacts
 dist/
 .parcel-cache/
+.cache/
+
+# Environment files (keep only examples in VCS)
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Editor/IDE settings (optional)
+.vscode/
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Netlify CLI local files
+.netlify/
+
+# Test coverage (if applicable)
+coverage/
+nyc_output/
+

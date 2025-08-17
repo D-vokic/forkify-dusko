@@ -1,8 +1,24 @@
 import icons from 'url:../../img/icons.svg';
 
+/**
+ * Base View class. Child classes must implement `_generateMarkup`
+ * and define `_parentElement`, `_errorMessage`, `_message`.
+ *
+ * @this {Object} View instance
+ * @author Duško Vokić
+ */
 export default class View {
   _data;
 
+  /**
+   * Render the received object to the DOM.
+   *
+   * @param {object | object[]} data The data to be rendered (e.g. recipe)
+   * @param {boolean} [render=true] If false, create markup string instead of rendering to the DOM
+   * @returns {undefined | string} A markup string is returned if render=false
+   * @this {Object} View instance
+   * @author Duško Vokić
+   */
   render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
@@ -16,6 +32,14 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
+  /**
+   * Update only changed text and attributes in the DOM (diffing).
+   *
+   * @param {object | object[]} data The new data to update the view with
+   * @returns {void}
+   * @this {Object} View instance
+   * @author Duško Vokić
+   */
   update(data) {
     this._data = data;
     const newMarkup = this._generateMarkup();
@@ -33,7 +57,6 @@ export default class View {
         !newEl.isEqualNode(curEl) &&
         newEl.firstChild?.nodeValue.trim() !== ''
       ) {
-        // console.log('😁😁😁😀', newEl.firstChild.nodeValue.trim());
         curEl.textContent = newEl.textContent;
       }
 
@@ -45,10 +68,24 @@ export default class View {
     });
   }
 
+  /**
+   * Clear the parent element.
+   *
+   * @returns {void}
+   * @this {Object} View instance
+   * @author Duško Vokić
+   */
   _clear() {
     this._parentElement.innerHTML = '';
   }
 
+  /**
+   * Render a loading spinner.
+   *
+   * @returns {void}
+   * @this {Object} View instance
+   * @author Duško Vokić
+   */
   renderSpinner() {
     const markup = `
           <div class="spinner">
@@ -61,6 +98,14 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
+  /**
+   * Render an error message.
+   *
+   * @param {string} [message=this._errorMessage] Error text to show
+   * @returns {void}
+   * @this {Object} View instance
+   * @author Duško Vokić
+   */
   renderError(message = this._errorMessage) {
     const markup = `
           <div class="error">
@@ -76,6 +121,14 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
+  /**
+   * Render a generic informational message.
+   *
+   * @param {string} [message=this._message] Message text to show
+   * @returns {void}
+   * @this {Object} View instance
+   * @author Duško Vokić
+   */
   renderMessage(message = this._message) {
     const markup = `
           <div class="message">
