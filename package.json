@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir ./dist --no-optimize"
+    "build": "parcel build index.html --dist-dir ./dist --no-cache --no-optimize"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.15.4",
