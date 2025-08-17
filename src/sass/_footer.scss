@@ -1,0 +1,37 @@
+/* Copyright box */
+.copyright {
+  margin: 2.4rem auto 0;
+  padding: 1.2rem 1.6rem;
+  max-width: 70ch;
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #615551; /* topla siva iz Forkify palete */
+  background: #fff6f4; /* suptilna pozadina */
+  border-radius: 12px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.03);
+}
+
+/* Linkovi sa gradijent-tekstom */
+.copyright a {
+  font-weight: 600;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #fbdb89, #f48982);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: opacity 0.2s ease, text-shadow 0.2s ease;
+}
+
+.copyright a:hover {
+  text-shadow: 0 0 1px rgba(244, 137, 130, 0.4);
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .copyright {
+    font-size: 1.2rem;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+  }
+}
