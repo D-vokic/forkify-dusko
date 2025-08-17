@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build artifacts / caches
+dist/
+.parcel-cache/
+.cache/
+.netlify/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Coverage (if you ever add tests)
+coverage/
+nyc_output/

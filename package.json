@@ -7,11 +7,14 @@
   "type": "module",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir ./dist --no-cache --no-optimize"
+    "build": "parcel build index.html --dist-dir ./dist --no-cache --no-optimize",
+    "format": "prettier -w .",
+    "format:check": "prettier -c ."
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.15.4",
-    "parcel": "^2.15.4"
+    "parcel": "^2.15.4",
+    "prettier": "^3.6.2"
   },
   "dependencies": {
     "core-js": "^3.44.0",
