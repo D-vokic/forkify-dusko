@@ -14,7 +14,7 @@ import 'regenerator-runtime/runtime';
 /**
  * Orchestrates Model ↔ View interactions (MVC controller).
  * Wires UI events to data actions and keeps views in sync.
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 
 /**
@@ -26,7 +26,7 @@ import 'regenerator-runtime/runtime';
  * - Renders the recipe view
  *
  * @returns {Promise<void>} Resolves when rendering finishes
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 const controlRecipes = async function () {
   try {
@@ -58,7 +58,7 @@ const controlRecipes = async function () {
  * - renders first page & pagination controls
  *
  * @returns {Promise<void>} Resolves when views are rendered
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 const controlSearchResults = async function () {
   try {
@@ -78,8 +78,7 @@ const controlSearchResults = async function () {
     paginationView.render(model.state.search);
   } catch {
     // Fallback UI (optional; if your ResultsView supports renderError)
-    if (typeof resultsView.renderError === 'function')
-      resultsView.renderError();
+    if (typeof resultsView.renderError === 'function') resultsView.renderError();
   }
 };
 
@@ -90,7 +89,7 @@ const controlSearchResults = async function () {
  *
  * @param {number} goToPage 1-based page index to render
  * @returns {void} Updates the results & pagination views
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 function controlPagination(goToPage) {
   resultsView.render(model.getSearchResultsPage(goToPage));
@@ -104,7 +103,7 @@ function controlPagination(goToPage) {
  *
  * @param {number} newServings New servings count
  * @returns {void} Mutates state and updates the view
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 const controlServings = function (newServings) {
   model.updateServings(newServings);
@@ -115,7 +114,7 @@ const controlServings = function (newServings) {
  * Toggle bookmark for the current recipe and sync views.
  *
  * @returns {void} Updates state, recipe view and bookmarks list
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 const controlAddBookmark = function () {
   if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
@@ -129,7 +128,7 @@ const controlAddBookmark = function () {
  * Render bookmarks on init (and when storage changes, if hooked).
  *
  * @returns {void} Renders bookmarks view from state
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 function controlBookmarks() {
   bookmarksView.render(model.state.bookmarks);
@@ -146,7 +145,7 @@ function controlBookmarks() {
  *
  * @param {Record<string, string>} newRecipe Raw form fields (name/value)
  * @returns {Promise<void>} Throws on validation/API error
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 const controlAddRecipe = async function (newRecipe) {
   try {
@@ -173,7 +172,7 @@ const controlAddRecipe = async function (newRecipe) {
  * App entry point — registers all UI handlers.
  *
  * @returns {void} Sets up event listeners on views
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);

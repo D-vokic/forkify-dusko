@@ -10,7 +10,7 @@ import View from './View.js';
  * @param {'prev'|'next'} type Which button to render
  * @param {number} currentPage Current page (1-based)
  * @returns {string} HTML string for the button
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 const generateMarkupButton = (type, currentPage) => {
   const isPrev = type === 'prev';
@@ -42,7 +42,7 @@ const generateMarkupButton = (type, currentPage) => {
  * Expects `_data` to be a search state object.
  *
  * @this {PaginationView} View instance
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 class PaginationView extends View {
   _parentElement = document.querySelector('.pagination');
@@ -54,7 +54,7 @@ class PaginationView extends View {
    * @param {(goToPage:number) => void} handler Controller callback
    * @returns {void}
    * @this {PaginationView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   addHandlerClick(handler) {
     this._parentElement.addEventListener('click', function (e) {
@@ -70,7 +70,7 @@ class PaginationView extends View {
    *
    * @returns {string} HTML for prev/next buttons (or empty string when not needed)
    * @this {PaginationView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _generateMarkup() {
     /** @type {SearchState} */

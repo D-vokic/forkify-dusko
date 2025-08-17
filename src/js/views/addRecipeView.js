@@ -7,7 +7,7 @@ import View from './View.js';
  * @param {'prev'|'next'} type Button type to render
  * @param {number} currentPage Current page (1-based)
  * @returns {string} HTML string for the button
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 const generateMarkupButton = (type, currentPage) => {
   const isPrev = type === 'prev';
@@ -39,7 +39,7 @@ const generateMarkupButton = (type, currentPage) => {
  * including opening/closing and form submission.
  *
  * @this {addRecipeView} View instance
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 class addRecipeView extends View {
   /** @private */ _parentElement = document.querySelector('.upload');
@@ -54,7 +54,7 @@ class addRecipeView extends View {
    *
    * @constructor
    * @this {addRecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   constructor() {
     super();
@@ -67,7 +67,7 @@ class addRecipeView extends View {
    *
    * @returns {void}
    * @this {addRecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   toggleWindow() {
     this._overlay.classList.toggle('hidden');
@@ -79,7 +79,7 @@ class addRecipeView extends View {
    *
    * @returns {void}
    * @this {addRecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _addHandlerShowWindow() {
     this._btnOpen.addEventListener('click', this.toggleWindow.bind(this));
@@ -90,7 +90,7 @@ class addRecipeView extends View {
    *
    * @returns {void}
    * @this {addRecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _addHandlerHideWindow() {
     this._btnClose.addEventListener('click', this.toggleWindow.bind(this));
@@ -104,7 +104,7 @@ class addRecipeView extends View {
    * @param {(data: Record<string,string>) => void} handler Controller callback
    * @returns {void}
    * @this {addRecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _addHandlerUpload(handler) {
     this._parentElement.addEventListener('submit', function (e) {
@@ -120,7 +120,7 @@ class addRecipeView extends View {
    *
    * @returns {string|undefined} Not used in this view
    * @this {addRecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _generateMarkup() {}
 }

@@ -5,7 +5,7 @@ import icons from 'url:../../img/icons.svg';
  * and define `_parentElement`, `_errorMessage`, `_message`.
  *
  * @this {Object} View instance
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 export default class View {
   _data;
@@ -17,11 +17,10 @@ export default class View {
    * @param {boolean} [render=true] If false, create markup string instead of rendering to the DOM
    * @returns {undefined | string} A markup string is returned if render=false
    * @this {Object} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   render(data, render = true) {
-    if (!data || (Array.isArray(data) && data.length === 0))
-      return this.renderError();
+    if (!data || (Array.isArray(data) && data.length === 0)) return this.renderError();
 
     this._data = data;
     const markup = this._generateMarkup();
@@ -38,7 +37,7 @@ export default class View {
    * @param {object | object[]} data The new data to update the view with
    * @returns {void}
    * @this {Object} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   update(data) {
     this._data = data;
@@ -46,17 +45,12 @@ export default class View {
 
     const newDom = document.createRange().createContextualFragment(newMarkup);
     const newElements = Array.from(newDom.querySelectorAll('*'));
-    const currentElements = Array.from(
-      this._parentElement.querySelectorAll('*')
-    );
+    const currentElements = Array.from(this._parentElement.querySelectorAll('*'));
 
     newElements.forEach((newEl, i) => {
       const curEl = currentElements[i];
       // Update changed text
-      if (
-        !newEl.isEqualNode(curEl) &&
-        newEl.firstChild?.nodeValue.trim() !== ''
-      ) {
+      if (!newEl.isEqualNode(curEl) && newEl.firstChild?.nodeValue.trim() !== '') {
         curEl.textContent = newEl.textContent;
       }
 
@@ -73,7 +67,7 @@ export default class View {
    *
    * @returns {void}
    * @this {Object} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _clear() {
     this._parentElement.innerHTML = '';
@@ -84,7 +78,7 @@ export default class View {
    *
    * @returns {void}
    * @this {Object} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   renderSpinner() {
     const markup = `
@@ -104,7 +98,7 @@ export default class View {
    * @param {string} [message=this._errorMessage] Error text to show
    * @returns {void}
    * @this {Object} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   renderError(message = this._errorMessage) {
     const markup = `
@@ -127,7 +121,7 @@ export default class View {
    * @param {string} [message=this._message] Message text to show
    * @returns {void}
    * @this {Object} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   renderMessage(message = this._message) {
     const markup = `

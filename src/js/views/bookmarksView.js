@@ -8,7 +8,7 @@ import View from './View.js';
  * Renders the user's bookmarked recipes list.
  *
  * @this {BookmarksView} View instance
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 class BookmarksView extends View {
   _parentElement = document.querySelector('.bookmarks__list');
@@ -21,7 +21,7 @@ class BookmarksView extends View {
    * @param {() => void} handler Controller callback to render bookmarks
    * @returns {void}
    * @this {BookmarksView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   addHandlerRender(handler) {
     window.addEventListener('load', handler);
@@ -32,12 +32,10 @@ class BookmarksView extends View {
    *
    * @returns {string} Concatenated HTML for the bookmarks list
    * @this {BookmarksView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _generateMarkup() {
-    return this._data
-      .map(bookmark => previewView.render(bookmark, false))
-      .join('');
+    return this._data.map(bookmark => previewView.render(bookmark, false)).join('');
   }
 }
 

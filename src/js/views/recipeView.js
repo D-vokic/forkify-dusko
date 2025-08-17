@@ -9,7 +9,7 @@ import { Fraction } from 'fraction.js';
  * View responsible for rendering a single recipe and its UI interactions.
  *
  * @this {RecipeView} View instance
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
@@ -22,7 +22,7 @@ class RecipeView extends View {
    * @param {() => void} handler Controller callback
    * @returns {void}
    * @this {RecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   addHandlerRender(handler) {
     ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
@@ -34,16 +34,16 @@ class RecipeView extends View {
    * @param {(newServings:number) => void} handler Controller callback receiving next servings
    * @returns {void}
    * @this {RecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   addHandlerUpdateServings(handler) {
-    this._parentElement,
+    (this._parentElement,
       addEventListener('click', function (e) {
         const btn = e.target.closest('.btn--update-servings');
         if (!btn) return;
         const { updateTo } = btn.dataset;
         if (+updateTo > 0) handler(+updateTo);
-      });
+      }));
   }
 
   /**
@@ -52,7 +52,7 @@ class RecipeView extends View {
    * @param {() => void} handler Controller callback
    * @returns {void}
    * @this {RecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   addHandlerAddBookmark(handler) {
     this._parentElement.addEventListener('click', function (e) {
@@ -67,14 +67,12 @@ class RecipeView extends View {
    *
    * @returns {string} Raw HTML markup
    * @this {RecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _generateMarkup() {
     return `
    <figure class="recipe__fig">
-          <img src="${this._data.image}" alt="${
-      this._data.title
-    }" class="recipe__img" />
+          <img src="${this._data.image}" alt="${this._data.title}" class="recipe__img" />
           <h1 class="recipe__title">
             <span>${this._data.title}</span>
           </h1>
@@ -116,9 +114,7 @@ class RecipeView extends View {
               </button>
             </div>
           </div>
-           <div class="recipe__user-generated ${
-             this._data.key ? '' : 'hidden'
-           }">
+           <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
             <svg>
               <use href="${icons}#icon-user"></use>
             </svg>
@@ -126,8 +122,8 @@ class RecipeView extends View {
           <button class="btn--round btn--bookmark">
             <svg class="">
               <use href="${icons}#icon-bookmark${
-      this._data.bookmarked ? '-fill' : ''
-    }"></use>
+                this._data.bookmarked ? '-fill' : ''
+              }"></use>
             </svg>
           </button>
         </div>
@@ -170,7 +166,7 @@ class RecipeView extends View {
    * @param {Ingredient} ing Ingredient entity
    * @returns {string} List item markup for the ingredient
    * @this {RecipeView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _generateMarkupIngredient(ing) {
     return `

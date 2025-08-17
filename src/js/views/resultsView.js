@@ -9,12 +9,11 @@ import previewView from './previewView.js';
  * Uses `previewView` to render each result item.
  *
  * @this {ResultsView} View instance
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 class ResultsView extends View {
   /** @private */ _parentElement = document.querySelector('.results');
-  /** @private */ _errorMessage =
-    'No recipes found for your query! Please try again.)';
+  /** @private */ _errorMessage = 'No recipes found for your query! Please try again.)';
   /** @private */ _message = '';
 
   /**
@@ -22,7 +21,7 @@ class ResultsView extends View {
    *
    * @returns {string} Concatenated markup for all results
    * @this {ResultsView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _generateMarkup() {
     return this._data.map(result => previewView.render(result, false)).join('');

@@ -1,6 +1,6 @@
 /**
  * Handles search form interactions (input + submit).
- * @author Duško Vokić
+ * @author Dusko Vokic
  */
 class SearchView {
   /** Root element for the search form. */
@@ -11,7 +11,7 @@ class SearchView {
    *
    * @returns {string} The current search query string
    * @this {SearchView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   getQuery() {
     const query = this._parentElement.querySelector('.search__field').value;
@@ -24,7 +24,7 @@ class SearchView {
    *
    * @returns {void}
    * @this {SearchView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   _clearInput() {
     this._parentElement.querySelector('.search__field').value = '';
@@ -36,7 +36,7 @@ class SearchView {
    * @param {() => void} handler Controller callback to execute on submit
    * @returns {void}
    * @this {SearchView} View instance
-   * @author Duško Vokić
+   * @author Dusko Vokic
    */
   addHandlerSearch(handler) {
     this._parentElement.addEventListener('submit', function (e) {
