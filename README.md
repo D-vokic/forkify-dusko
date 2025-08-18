@@ -218,4 +218,5 @@ _Use for learning or portfolio. Not for teaching. Do not claim as original cours
 ## License
 
 This project is open-sourced under the **MIT License** - see the [LICENSE.md](LICENSE.md) file for details.  
-© Duško Vokić
+© [Duško Vokić](https://duskovokic.com)
+
