@@ -1,7 +1,6 @@
 # Forkify — Recipe Search & Bookmarks
 
 **Live:** https://forkify-dusko.netlify.app/  
-**Source:** https://github.com/D-vokic/forkify-dusko
 
 A modern, client-side recipe app: search over 1,000,000 recipes, view details, scale servings, bookmark favorites, and add your own recipes — all in the browser.
 
