@@ -28,14 +28,14 @@ A modern, client-side recipe app: search over 1,000,000 recipes, view details, s
 
 ## Features
 
-- 🔎 **Search** recipes by keyword (1M+ dataset)
-- 📄 **Details** view with ingredients, time, and servings
-- ➕/➖ **Update servings** (auto-recalculates quantities)
-- ⭐ **Bookmarks** (persisted in `localStorage`)
-- 📝 **Add recipe** via form (client-side validation)
-- ⏭️ **Pagination** for large result sets
-- ⚡ **Fast** client-side rendering (no framework)
-- 📱 **Responsive** and keyboard accessible
+- **Search** recipes by keyword (1M+ dataset)
+- **Details** view with ingredients, time, and servings
+- **Update servings** (auto-recalculates quantities)
+- **Bookmarks** (persisted in `localStorage`)
+- **Add recipe** via form (client-side validation)
+- **Pagination** for large result sets
+- **Fast** client-side rendering (no framework)
+- **Responsive** and keyboard accessible
 
 ---
 
